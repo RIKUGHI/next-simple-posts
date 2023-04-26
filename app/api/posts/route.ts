@@ -55,3 +55,19 @@ export async function POST(req: NextRequest) {
     throw e
   }
 }
+
+export const PUT = async (req: NextRequest) => {
+  const { title, content, id } = await req.json()
+
+  const post = await prisma.post.update({
+    where: {
+      id: Number(id),
+    },
+    data: {
+      title,
+      content,
+    },
+  })
+
+  return NextResponse.json({ post })
+}

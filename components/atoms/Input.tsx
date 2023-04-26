@@ -2,10 +2,11 @@ import { ChangeEvent } from 'react'
 
 interface Props {
   name: string
+  value?: string
   onChange?: (value: string) => void
 }
 
-const Input = ({ name, onChange }: Props) => {
+const Input = ({ name, value, onChange }: Props) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (onChange) onChange(e.target.value)
   }
@@ -22,6 +23,7 @@ const Input = ({ name, onChange }: Props) => {
         type="text"
         id={name}
         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        value={value}
         onChange={handleChange}
       />
     </div>
