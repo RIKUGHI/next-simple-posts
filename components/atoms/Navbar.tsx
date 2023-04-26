@@ -11,18 +11,8 @@ const Navbar = () => {
         path: '/',
       },
       {
-        name: 'My Posts',
-        path: '/my-posts',
-      },
-    ],
-    [
-      {
-        name: 'Login',
-        path: '/login',
-      },
-      {
-        name: 'Sign up',
-        path: '/sign-up',
+        name: 'Posts',
+        path: '/posts',
       },
     ],
   ]
