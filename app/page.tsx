@@ -1,9 +1,6 @@
 import SimplePost from '@/components/atoms/SimplePost'
 import { Post, User } from '@prisma/client'
-import { Inter } from 'next/font/google'
 import Link from 'next/link'
-
-const inter = Inter({ subsets: ['latin'] })
 
 const getPosts = async () => {
   const res = await fetch(process.env.BASE_URL + '/api/posts', {
@@ -30,9 +27,7 @@ export default async function Home() {
       </Link>
       <main className="grid grid-cols-4 gap-4 mt-4">
         {posts.map((post, i) => (
-          <Link href={`/${post.id}`}>
-            <SimplePost key={i} post={post} />
-          </Link>
+          <SimplePost post={post} key={i} />
         ))}
       </main>
     </>

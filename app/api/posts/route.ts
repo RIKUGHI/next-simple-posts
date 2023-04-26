@@ -71,3 +71,20 @@ export const PUT = async (req: NextRequest) => {
 
   return NextResponse.json({ post })
 }
+
+export const DELETE = async (req: NextRequest) => {
+  const url = new URL(req.url).searchParams
+  const id = Number(url.get('id')) || 0
+
+  const post = await prisma.post.delete({
+    where: {
+      id: id,
+    },
+  })
+
+  if (!post) {
+    return NextResponse.json({ message: 'Error' }, { status: 500 })
+  }
+
+  return NextResponse.json({})
+}
